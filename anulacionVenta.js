@@ -1,10 +1,9 @@
-function vender(cliente, tienda, tpv, ticket, importe){
+function anulacionVenta(data){
     var net = require('net');
-    var client = new net.Socket();
     client.connect(8890, '127.0.0.1', function(){
-        console.log('Conectado al CoLinux | Venta');
-        var venta = `\x02${cliente};${tienda};${tpv};gleidy;${ticket};1;${importe};banco;PagoAplazado;;;;;`;
-        client.write(venta);
+        console.log('Conectado al CoLinux | Anulacion venta');
+        var anulacion_venta = `\x02${data.cliente};${data.tienda};${data.tpv};gleidy;${data.ticket};11;${data.importe};(NumOpCO);(NumOpBco);(CodAut)\x03`;
+        client.write(anulacion_venta);
     });
     client.on('data', function(data){
         console.log('Recibido: ' + data);
@@ -14,4 +13,4 @@ function vender(cliente, tienda, tpv, ticket, importe){
     client.on('close', function(){
         console.log('Conexión cerrada');
     });
-}
+  }

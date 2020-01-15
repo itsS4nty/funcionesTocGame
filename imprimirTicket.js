@@ -5,8 +5,8 @@ var device = new escpos.USB('0x4B8', '0x202'); //ESTE ES EL BUENO
 var options = { encoding: "GB18030" };
 var printer = new escpos.Printer(device, options);
 // const tux = path.join(__dirname, 'contactlessCO.png');  
-const tux = path.join(__dirname, 'contactlessChip.png');  
-escpos.Image.load(tux, (image) => {
+//const tux = path.join(__dirname, 'contactlessChip.png');  
+/*escpos.Image.load(tux, (image) => {
     device.open(() => {
         printer.image(image).then(() => 
             printer
@@ -44,4 +44,56 @@ escpos.Image.load(tux, (image) => {
             .cut()
             .close());
         });
-    });
+    });*/
+    const tux = path.join(__dirname, 'recuento.png');  
+    escpos.Image.load(tux, (image) => {
+        device.open(() => {
+            printer.image(image).then(() => 
+                printer
+                .align('CT')
+                .size(2,2)
+                .text('BOTIGA : t--91')
+                .size(1,1)
+                .text('Resum caixa')
+                .text('')
+                .align('LT')
+                .text('Resp.   : Santy Alvarez')
+                .text('Inici   : miercoles 15-01-2020 08:00:00')
+                .text('Fi      : miercoles 15-01-2020 18:00:00')
+                .text('')
+                .size(1,2)
+                .text('Calaix Fet      :      1246.9')
+                .text('Descuadre       :         9.2')
+                .text('Clients Atesos  :      538.00')
+                .text('Albarans        :           0')
+                .text('')
+                .size(1,1)
+                .text('Moviments de Caixa')
+                .align('CT')
+                .text('-1.3 -> 42153')
+                .text('-1.3 -> 42153')
+                .text('-1.3 -> 42153')
+                .text('-1.3 -> 42153')
+                .text('-1.3 -> 42153')
+                .text('-1.3 -> 42153')
+                .text('-1.3 -> 42153')
+                .text('-1.3 -> 42153')
+                .text('-1.3 -> 42153')
+                .text('-1.3 -> 42153')
+                .text('-1.3 -> 42153')
+                .text('-1.3 -> 42153')
+                .text('-1.3 -> 42153')
+                .text('-1.3 -> 42153')
+                .text('-1.3 -> 42153')
+                .text('-1.3 -> 42153')
+                .text('-1.3 -> 42153')
+                .text('-1.3 -> 42153')
+                .text('-1.3 -> 42153')
+                .text('-1.3 -> 42153')
+                .text('')
+                .text('')
+                .text('')
+                .cut()
+                .close());
+            });
+        });

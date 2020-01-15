@@ -1,0 +1,5 @@
+Crear usuario para la impresora y darle la propiedad para poder imprimir
+# No hacer 777 (Bueno, intentar evitarlo)
+Instalar build-essential y libudev-dev (drivers impresora)
+Verificar con lsusb que numero de bus es la impresora
+Ejecutar el tocGame con el usuario creado para la impresora

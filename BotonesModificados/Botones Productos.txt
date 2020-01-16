@@ -1,0 +1,1 @@
+document.getElementById(strPos).setAttribute('style', 'background-color:#'+infoTeclado[id].arrayTeclado[i].color+'; visibility: visible;font-family: \'Anton\', sans-serif; font-size: 20px; letter-spacing:2px; line-height:18px;white-space:normal;color: black; margin: 0 0 0 0;');

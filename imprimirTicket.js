@@ -45,7 +45,7 @@ var printer = new escpos.Printer(device, options);
             .close());
         });
     });*/
-    function hola(){
+  /*  function hola(){
         var p = [1,2,3,4,5];
         return p.toString().replace(/,/g,"\n");
     }
@@ -104,4 +104,28 @@ var printer = new escpos.Printer(device, options);
                 .cut()
                 .close());
             });
-        });
+        });*/
+        var datetime = new Date();
+        function salidaDinero(totalRetirado, cajaActual){
+            const tux = path.join(__dirname, 'recuento.png');  
+            escpos.Image.load(tux, (image) => {
+                device.open(() => {
+                    printer.image(image).then(() => 
+                        printer
+                        .align('CT')
+                        .size(1,1)
+                        .text("T-91")
+                        .text(datetime)
+                        .text("Dependienta")
+                        .size(2,2)
+                        .text(totalRetirado)
+                        .size(1,1)
+                        .text("Efectivo actual")
+                        .size(2,2)
+                        .text(cajaActual)
+                        .cut()
+                        .close());
+                    });
+                });
+        }
+        

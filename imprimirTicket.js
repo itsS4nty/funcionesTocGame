@@ -117,6 +117,7 @@ var printer = new escpos.Printer(device, options);
                         .text("T-91")
                         .text(datetime)
                         .text("Dependienta")
+                        .text("Retirada efectivo:")
                         .size(2,2)
                         .text(totalRetirado)
                         .size(1,1)
